@@ -1,0 +1,876 @@
+/* =========================
+   GLOBAL
+========================= */
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Segoe UI, sans-serif;
+}
+
+body{
+background:#0b0f1a;
+color:white;
+overflow-x:hidden;
+}
+
+/* =========================
+   NAVBAR
+========================= */
+#navbar{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:10px 25px;
+background:rgba(15,23,42,0.85);
+backdrop-filter:blur(12px);
+z-index:1000;
+}
+
+#navbar img{
+width:120px;
+height:auto;
+}
+
+/* NAV LINKS */
+.nav-links{
+display:flex;
+gap:20px;
+align-items:center;
+}
+
+.nav-links li{
+list-style:none;
+}
+
+.nav-links a{
+color:white;
+text-decoration:none;
+position:relative;
+font-size:14px;
+transition:0.3s;
+}
+
+.nav-links a::after{
+content:"";
+position:absolute;
+left:0;
+bottom:-5px;
+width:0%;
+height:2px;
+background:#00ffcc;
+transition:0.3s;
+}
+
+.nav-links a:hover::after{
+width:100%;
+}
+
+/* SEARCH */
+.nav-search{
+display:flex;
+gap:5px;
+}
+
+.nav-search input{
+padding:8px;
+border:none;
+border-radius:5px;
+outline:none;
+}
+
+/* BUTTON */
+.navbutton{
+padding:10px 15px;
+border:none;
+border-radius:8px;
+background:#00ffcc;
+cursor:pointer;
+transition:0.3s;
+font-weight:bold;
+}
+
+.navbutton:hover{
+transform:scale(1.05);
+background:#ffb703;
+}
+
+/* MOBILE MENU */
+.menu-toggle{
+display:none;
+font-size:28px;
+color:white;
+cursor:pointer;
+}
+
+/* =========================
+   TRACK HEADER
+========================= */
+.track-sub{
+margin-top:120px;
+display:flex;
+justify-content:center;
+align-items:center;
+gap:20px;
+padding:25px;
+background:#111827;
+color:#00ffcc;
+flex-wrap:wrap;
+text-align:center;
+}
+
+.track-sub h3,
+.track-sub h4{
+margin:0;
+}
+
+.track-sub a{
+color:#00ffcc;
+text-decoration:none;
+}
+
+/* =========================
+   TRACK CONTAINER
+========================= */
+.track-container{
+display:flex;
+justify-content:center;
+align-items:center;
+flex-wrap:wrap;
+gap:30px;
+padding:50px 20px;
+background:#1f2937;
+}
+
+/* TRACK BOX */
+.track-container-left{
+background:#121a3b;
+padding:30px;
+border-radius:15px;
+width:100%;
+max-width:650px;
+text-align:center;
+box-shadow:0 10px 25px rgba(0,0,0,0.3);
+}
+
+/* TRACK INPUT */
+.track-container input{
+width:70%;
+max-width:320px;
+height:45px;
+padding:10px;
+border:none;
+border-radius:8px;
+outline:none;
+margin-right:10px;
+}
+
+/* =========================
+   MAP
+========================= */
+.map{
+width:100%;
+padding:20px;
+background:white;
+overflow:hidden;
+}
+
+/* =========================
+   FOOTER
+========================= */
+.end-container{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+background:#111;
+padding:40px 20px;
+}
+
+.end-container div{
+background:#1f2937;
+padding:25px;
+border-radius:10px;
+color:white;
+}
+
+/* FOOTER ICONS */
+.lastIcons{
+font-size:25px;
+background:#00ffcc;
+padding:10px;
+border-radius:50%;
+color:black;
+transition:0.3s;
+}
+
+.lastIcons:hover{
+background:#ffb703;
+transform:scale(1.1);
+}
+
+/* =========================
+   BUTTONS
+========================= */
+.butt{
+padding:12px 25px;
+border:none;
+border-radius:30px;
+background:#00ffcc;
+color:black;
+cursor:pointer;
+transition:0.3s;
+font-weight:bold;
+}
+
+.butt:hover{
+transform:scale(1.08);
+box-shadow:0 0 20px #00ffcc;
+}
+
+/* =========================
+   TRACK PAGE LAYOUT
+========================= */
+.track-page{
+padding:140px 20px 60px;
+text-align:center;
+}
+
+.track-header h1{
+font-size:40px;
+color:#00ffcc;
+}
+
+.track-header p{
+color:#aaa;
+margin-bottom:30px;
+}
+
+/* INPUT BOX */
+.track-box{
+display:flex;
+justify-content:center;
+gap:10px;
+flex-wrap:wrap;
+margin-bottom:30px;
+}
+
+.track-box input{
+padding:15px;
+width:300px;
+border:none;
+border-radius:10px;
+outline:none;
+}
+
+.track-box button{
+padding:15px 25px;
+border:none;
+border-radius:10px;
+background:#00ffcc;
+cursor:pointer;
+font-weight:bold;
+transition:0.3s;
+}
+
+.track-box button:hover{
+background:#ffb703;
+transform:scale(1.05);
+}
+
+/* LOADING */
+.loading{
+margin-top:20px;
+}
+
+.spinner{
+width:40px;
+height:40px;
+border:4px solid #ccc;
+border-top:4px solid #00ffcc;
+border-radius:50%;
+margin:auto;
+animation:spin 1s linear infinite;
+}
+
+@keyframes spin{
+100%{transform:rotate(360deg);}
+}
+
+.hidden{
+display:none;
+}
+
+/* RESULT CARD */
+.result-card{
+background:#121a3b;
+padding:30px;
+margin-top:30px;
+border-radius:15px;
+max-width:600px;
+margin-left:auto;
+margin-right:auto;
+box-shadow:0 10px 25px rgba(0,0,0,0.4);
+}
+
+.progress-bar{
+width:100%;
+height:10px;
+background:#333;
+border-radius:10px;
+margin:20px 0;
+overflow:hidden;
+}
+
+#progress{
+height:100%;
+width:0%;
+background:linear-gradient(90deg,#00ffcc,#ffb703);
+transition:1s ease;
+}
+
+/* STEPS */
+.steps{
+display:flex;
+justify-content:space-between;
+font-size:12px;
+color:#aaa;
+}
+
+.step.active{
+color:#00ffcc;
+font-weight:bold;
+}
+
+/* =========================
+   TRACK V2 LAYOUT
+========================= */
+.track-v2{
+padding:140px 20px 60px;
+text-align:center;
+background:#0b0f1a;
+color:white;
+}
+
+.track-hero h1{
+font-size:42px;
+color:#00ffcc;
+}
+
+.track-hero p{
+color:#aaa;
+margin-bottom:25px;
+}
+
+/* INPUT */
+.track-input-box{
+display:flex;
+justify-content:center;
+gap:10px;
+flex-wrap:wrap;
+margin-bottom:30px;
+}
+
+.track-input-box input{
+padding:15px;
+width:320px;
+border:none;
+border-radius:10px;
+outline:none;
+}
+
+.track-input-box button{
+padding:15px 25px;
+border:none;
+border-radius:10px;
+background:#00ffcc;
+cursor:pointer;
+font-weight:bold;
+transition:0.3s;
+}
+
+.track-input-box button:hover{
+background:#ffb703;
+transform:scale(1.05);
+}
+
+/* LOADER */
+.loader{
+width:45px;
+height:45px;
+border:4px solid #333;
+border-top:4px solid #00ffcc;
+border-radius:50%;
+margin:auto;
+animation:spin 1s linear infinite;
+}
+
+@keyframes spin{
+100%{transform:rotate(360deg);}
+}
+
+.hidden{
+display:none;
+}
+
+/* RESULT CARD */
+.card{
+background:#121a3b;
+padding:30px;
+border-radius:15px;
+max-width:650px;
+margin:auto;
+box-shadow:0 10px 25px rgba(0,0,0,0.4);
+}
+
+/* PROGRESS BAR */
+.progress{
+width:100%;
+height:12px;
+background:#333;
+border-radius:10px;
+margin:20px 0;
+overflow:hidden;
+}
+
+#progressBar{
+height:100%;
+width:0%;
+background:linear-gradient(90deg,#00ffcc,#ffb703);
+transition:1s ease;
+}
+
+/* TIMELINE */
+.timeline{
+text-align:left;
+margin-top:20px;
+}
+
+.step{
+padding:10px;
+margin:5px 0;
+background:#1f2937;
+border-radius:8px;
+opacity:0.4;
+transition:0.3s;
+}
+
+.step.active{
+opacity:1;
+background:#00ffcc;
+color:black;
+font-weight:bold;
+transform:scale(1.02);
+}
+
+/* TRUCK ANIMATION */
+.truck{
+font-size:40px;
+margin-top:20px;
+animation:moveTruck 3s linear infinite;
+}
+
+@keyframes moveTruck{
+0%{transform:translateX(-40px);}
+50%{transform:translateX(40px);}
+100%{transform:translateX(-40px);}
+}
+
+/* =========================
+   ENTERPRISE LAYOUT
+========================= */
+.enterprise{
+padding:140px 20px;
+background:#0b0f1a;
+color:white;
+}
+
+.hero{
+text-align:center;
+margin-bottom:40px;
+}
+
+.hero h1{
+font-size:40px;
+color:#00ffcc;
+}
+
+/* DASHBOARD */
+.dashboard{
+display:grid;
+grid-template-columns:300px 1fr;
+gap:20px;
+}
+
+/* PANELS */
+.panel{
+background:#121a3b;
+padding:20px;
+border-radius:15px;
+}
+
+/* INPUT */
+.panel input{
+width:100%;
+padding:12px;
+margin-bottom:10px;
+border:none;
+border-radius:8px;
+}
+
+.panel button{
+width:100%;
+padding:12px;
+background:#00ffcc;
+border:none;
+border-radius:8px;
+font-weight:bold;
+cursor:pointer;
+transition:0.3s;
+}
+
+.panel button:hover{
+background:#ffb703;
+}
+
+/* HISTORY */
+.history{
+margin-top:20px;
+}
+
+.history ul{
+list-style:none;
+padding:0;
+}
+
+.history li{
+padding:8px;
+margin:5px 0;
+background:#1f2937;
+border-radius:6px;
+font-size:13px;
+}
+
+/* LOADER */
+.loader{
+width:40px;
+height:40px;
+border:4px solid #333;
+border-top:4px solid #00ffcc;
+border-radius:50%;
+margin:auto;
+animation:spin 1s linear infinite;
+}
+
+@keyframes spin{
+100%{transform:rotate(360deg);}
+}
+
+.hidden{display:none;}
+
+/* CARD */
+.card{
+margin-bottom:20px;
+padding:20px;
+border-radius:10px;
+background:#1f2937;
+}
+
+/* PROGRESS */
+.progress{
+width:100%;
+height:10px;
+background:#333;
+border-radius:10px;
+overflow:hidden;
+margin-top:10px;
+}
+
+#progressBar{
+height:100%;
+width:0%;
+background:linear-gradient(90deg,#00ffcc,#ffb703);
+transition:1s;
+}
+
+/* TIMELINE */
+.timeline{
+margin-top:20px;
+}
+
+.step{
+padding:10px;
+margin:5px 0;
+background:#1f2937;
+opacity:0.4;
+border-radius:6px;
+transition:0.3s;
+}
+
+.step.active{
+opacity:1;
+background:#00ffcc;
+color:black;
+font-weight:bold;
+}
+
+/* MAP ROUTE */
+.map-route{
+position:relative;
+height:120px;
+margin:20px 0;
+background:#0f172a;
+border-radius:10px;
+}
+
+.dot{
+width:10px;
+height:10px;
+background:#00ffcc;
+border-radius:50%;
+position:absolute;
+top:50%;
+transform:translateY(-50%);
+}
+
+.start{left:10px;}
+.end{right:10px;}
+
+.line{
+position:absolute;
+top:50%;
+left:10px;
+right:10px;
+height:2px;
+background:#00ffcc;
+opacity:0.5;
+}
+
+#truck{
+position:absolute;
+top:40%;
+left:0;
+transition:1s ease;
+font-size:20px;
+}
+
+/* =========================
+   ENTERPRISE LAYOUT
+========================= */
+.enterprise{
+padding:140px 20px;
+background:#0b0f1a;
+color:white;
+}
+
+.hero{
+text-align:center;
+margin-bottom:40px;
+}
+
+.hero h1{
+font-size:40px;
+color:#00ffcc;
+}
+
+/* DASHBOARD */
+.dashboard{
+display:grid;
+grid-template-columns:300px 1fr;
+gap:20px;
+}
+
+/* PANELS */
+.panel{
+background:#121a3b;
+padding:20px;
+border-radius:15px;
+}
+
+/* INPUT */
+.panel input{
+width:100%;
+padding:12px;
+margin-bottom:10px;
+border:none;
+border-radius:8px;
+}
+
+.panel button{
+width:100%;
+padding:12px;
+background:#00ffcc;
+border:none;
+border-radius:8px;
+font-weight:bold;
+cursor:pointer;
+transition:0.3s;
+}
+
+.panel button:hover{
+background:#ffb703;
+}
+
+/* HISTORY */
+.history{
+margin-top:20px;
+}
+
+.history ul{
+list-style:none;
+padding:0;
+}
+
+.history li{
+padding:8px;
+margin:5px 0;
+background:#1f2937;
+border-radius:6px;
+font-size:13px;
+}
+
+/* LOADER */
+.loader{
+width:40px;
+height:40px;
+border:4px solid #333;
+border-top:4px solid #00ffcc;
+border-radius:50%;
+margin:auto;
+animation:spin 1s linear infinite;
+}
+
+@keyframes spin{
+100%{transform:rotate(360deg);}
+}
+
+.hidden{display:none;}
+
+/* CARD */
+.card{
+margin-bottom:20px;
+padding:20px;
+border-radius:10px;
+background:#1f2937;
+}
+
+/* PROGRESS */
+.progress{
+width:100%;
+height:10px;
+background:#333;
+border-radius:10px;
+overflow:hidden;
+margin-top:10px;
+}
+
+#progressBar{
+height:100%;
+width:0%;
+background:linear-gradient(90deg,#00ffcc,#ffb703);
+transition:1s;
+}
+
+/* TIMELINE */
+.timeline{
+margin-top:20px;
+}
+
+.step{
+padding:10px;
+margin:5px 0;
+background:#1f2937;
+opacity:0.4;
+border-radius:6px;
+transition:0.3s;
+}
+
+.step.active{
+opacity:1;
+background:#00ffcc;
+color:black;
+font-weight:bold;
+}
+
+/* MAP ROUTE */
+.map-route{
+position:relative;
+height:120px;
+margin:20px 0;
+background:#0f172a;
+border-radius:10px;
+}
+
+.dot{
+width:10px;
+height:10px;
+background:#00ffcc;
+border-radius:50%;
+position:absolute;
+top:50%;
+transform:translateY(-50%);
+}
+
+.start{left:10px;}
+.end{right:10px;}
+
+.line{
+position:absolute;
+top:50%;
+left:10px;
+right:10px;
+height:2px;
+background:#00ffcc;
+opacity:0.5;
+}
+
+#truck{
+position:absolute;
+top:40%;
+left:0;
+transition:1s ease;
+font-size:20px;
+}
+/* =========================
+   MOBILE RESPONSIVE
+========================= */
+@media(max-width:900px){
+
+.nav-links,
+.nav-search{
+display:none;
+}
+
+#navbar.active .nav-links{
+display:flex;
+flex-direction:column;
+position:absolute;
+top:60px;
+left:0;
+width:100%;
+background:#0f172a;
+padding:20px;
+}
+
+.menu-toggle{
+display:block;
+}
+
+.track-container input{
+width:100%;
+margin-bottom:10px;
+}
+
+.track-container form{
+display:flex;
+flex-direction:column;
+align-items:center;
+}
+
+.end-container{
+grid-template-columns:1fr;
+}
+}

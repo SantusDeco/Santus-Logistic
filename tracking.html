@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tracking</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
+    <link rel="stylesheet" href="tracking.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css" integrity="sha384-b6lVK+yci+bfDmaY1u0zE8YYJt0TZxLEAFyYSLHId4xoVvsrQu3INevFKo+Xir8e" crossorigin="anonymous">
+</head>
+<body>
+    
+    <nav id="navbar">
+
+  <div class="logo">
+    <img src="SAntus Logo.jpeg" alt="logo">
+  </div>
+
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="#">About us</a></li>
+    <li><a href="serivce.html">Service</a></li>
+    <li><a href="tracking.html">Track</a></li>
+    <li><a href="contact.html">Contact us</a></li>
+  </ul>
+
+  <div class="nav-search">
+    <input type="text" placeholder="Search...">
+    <button>Search</button>
+  </div>
+
+  <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+
+</nav>
+
+ <div class="enterprise">
+
+  <div class="hero">
+    <h1>Enterprise Logistics Tracking System</h1>
+    <p>Real-time global shipment monitoring dashboard</p>
+  </div>
+
+  <div class="dashboard">
+
+    <!-- LEFT PANEL -->
+    <div class="panel left">
+
+      <input id="trackInput" placeholder="Enter Tracking ID (e.g. SANTUS-001)">
+      <button onclick="trackEnterprise()">Track Shipment</button>
+
+      <div class="history">
+        <h3>Recent Searches</h3>
+        <ul id="historyList"></ul>
+      </div>
+
+    </div>
+
+    <!-- RIGHT PANEL -->
+    <div class="panel right">
+
+      <div id="loading" class="loading hidden">
+        <div class="loader"></div>
+        <p>Connecting to global logistics network...</p>
+      </div>
+
+      <div id="result" class="result hidden">
+
+        <div class="card">
+
+          <h2>Shipment Overview</h2>
+
+          <p><b>ID:</b> <span id="trackId"></span></p>
+          <p><b>Status:</b> <span id="statusText"></span></p>
+          <p><b>Location:</b> <span id="locationText"></span></p>
+          <p><b>ETA:</b> <span id="etaText"></span></p>
+
+          <div class="progress">
+            <div id="progressBar"></div>
+          </div>
+
+        </div>
+
+        <!-- MAP ROUTE SIMULATION -->
+        <div class="map-route">
+          <div class="dot start"></div>
+          <div class="line"></div>
+          <div class="dot end"></div>
+          <div id="truck">🚚</div>
+        </div>
+
+        <!-- STATUS TIMELINE -->
+        <div class="timeline">
+
+          <div class="step" id="s1">Order Confirmed</div>
+          <div class="step" id="s2">Warehouse Processing</div>
+          <div class="step" id="s3">In Transit</div>
+          <div class="step" id="s4">Customs Clearance</div>
+          <div class="step" id="s5">Out for Delivery</div>
+          <div class="step" id="s6">Delivered</div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+    <div class="map"  style="overflow:hidden;resize:none;max-width:100%;width:100%;height:500px;"><div id="display-google-map" style="height:100%; width:100%;max-width:100%;"><iframe style="height:100%;width:100%;border:0;" frameborder="0" src="https://www.google.com/maps/embed/v1/directions?origin=Washington,+USA&destination=Seattle,+WA,+USA&key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8"></iframe></div><a class="the-googlemap-enabler" rel="nofollow" href="https://www.bootstrapskins.com/themes" id="enable-maps-data"></a><style>#display-google-map img{max-width:none!important;background:none!important;font-size: inherit;font-weight:inherit;}</style></div>
+
+
+    <div class="end-container">
+        <div>
+          <h1 style="font-size:50px; font-style: oblique;">SANTUS Logistics</h1> <br> <br> <br>
+          <p>
+            Santus Logistics operates 399 international and domestic shipping routes, consisting of 
+            265 international services (including international feeder services), 54 domestic services, 
+            80 Yangtze River and Pearl River shipping services, having anchors in 352 ports covering 105 
+            countries and regions worldwide.
+          </p>
+          <button class="butt">Discover More</button>
+        </div>
+
+        <div style="padding:70px">
+          <h3 style="border-style:outset; margin-bottom:100px ;">RECENT NEWS</h3>
+          <i class="lastIcons bi-pencil-fill"></i><span> <br> <br> <h5> Design Transport Company</h5></span>
+          <p>may 21, 2026</p>
+          <i class="lastIcons bi-car-front"></i><span> <br> <br> <h5> Transport Process Video</h5></span>
+          <p>may 21, 2026</p>
+        </div>
+
+        <div style="padding:70px">
+          <h3 style="border-style: outset; margin-bottom:100px;">CONTACT US</h3>
+          <i class="lastIcons bi-geo-alt-fill"></i> <br> <br>
+          <p>Santus Logistics, 151 Nathan Way, London SE28 0AB, United Kingdom</p>
+
+          <i class="lastIcons bi-envelope"></i> <br> <br>
+          <p>contact@santusdeco250@gmail.com</p>
+
+          <i class="lastIcons bi-telephone"></i> <br> <br>
+          <p>Phone: +2348164357250</p>
+        </div>
+      </div>
+
+      <div style="height:70px; width:100%; background-color: #4E598C; color:white;">
+        <br><h4>@SANTUS LOGISTICS. ALL RIGHTS RESERVED.
+        </h4>
+      </div>
+
+<script src="index.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js" integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N" crossorigin="anonymous"></script>
+
+</body>
+</html>
